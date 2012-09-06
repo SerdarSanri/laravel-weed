@@ -2,3 +2,118 @@ laravel-weed
 ============
 
 Weed is a bundle that handle the rendering of views using Twig template engine.
+
+
+== Twig_Weed_Extension ==
+
+Provides Twig support for commonly used Laravel and marketyou classes and methods.
+
+=== config ===
+
+Read and return a config value
+
+ * @param string $conf The config value to lookup
+ * @param string $default The default value to use //(optional)//
+
+    {{ config('application.url') }}
+
+=== input_get ===
+
+Get a input value
+
+ * @param string $name The value name
+ * @param string $default The default value to use //(optional)//
+
+    {{ input_get('username', 'ipalaus') }}
+
+=== tr ===
+
+Get a language specific line
+
+ * @param string $key   The Key to search
+ * @param array  $subst array The values to substitute //(optional)//
+ * @param string $lang  string The language. Will default to user language if not set. //(optional)//
+
+    {{ tr('hello_weather', 'name=World & weather=Cold') }}
+    # hello_weather => Hello :world. Today is :weather
+    # output: Hello World. Today is Cold
+
+=== url_to ===
+
+Generate an application URL.
+
+ * @param string $url URL to a location within the application.
+
+    {{ url_to('mycard') }}
+    # output: http://domain.tld/mycard
+
+=== url_to_secure ===
+
+Generate an application URL with HTTPS.
+
+ * @param string $url URL to a location within the application.
+
+    {{ url_to_secure('mycard') }}
+    # output: https://domain.tld/mycard
+
+=== script ===
+
+Generate a script tag
+
+ * @param string $file The file relative to your public directory
+ * @param string $params  Additional HTML attributes
+
+    {{ script('js/jquery.min.js') }}
+    # output: <script type="text/javascript" src="http://cdn.domain.tld/js/jquery.min.js"></script>
+
+=== style ===
+
+Generate a style tag
+
+ * @param string $file   The file relative to your public directory
+ * @param string $params Additional HTML attributes
+
+    {{ style('css/bootstrap.css', 'foo=bar & data-type=something') }}
+    # output: <link href="http://cdn.domain.tld/css/bootstrap.css" foo="bar" data-type="something">
+
+=== link ===
+
+Generate a hyperlink
+
+ * @param string $dest The file relative to your public directory
+ * @param string $title The HTML title attribute
+ * @param string $params Additional HTML attributes
+
+    {{ link('http://google.com', 'Google', 'target=_blank') }}
+    # output: <a href="http://google.com" target="_blank">Google</a>
+
+=== link_secure ===
+
+Generate a hyperlink
+
+ * @param string $dest The file relative to your public directory
+ * @param string $title The HTML title attribute
+ * @param string $params Additional HTML attributes
+
+    {{ link('http://google.com', 'Google', 'target=_blank') }}
+    # output: <a href="https://google.com" target="_blank">Google</a>
+
+=== image ===
+
+Generate an image tag
+
+ * @param string $file The file relative to your public directory
+ * @param string $alt The HTML alt attribute
+ * @param string $params Additional HTML attributes
+
+    {{ image('img/ipsum.jpg', 'Sample Photo', 'width=120 & height=100 & title=something') }}
+    #output: <img src="http://cdn.example.tld/img/upsum.jpg" alt="Sample Photo" width="120" height="100" title="something" />
+
+=== email ===
+
+Obfuscate an e-mail address to prevent spam-bots from sniffing it.
+
+ * @param  string  $email
+
+    {{ email('example@domain.tld') }}
+    #output: &#x65;&#120;&#x61;&#x6d;p&#108;&#101;&#64;&#100;&#111;&#x6d;&#x61;&#x69;n.t&#108;&#x64;
