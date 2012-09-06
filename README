@@ -3,6 +3,15 @@ laravel-weed
 
 Weed is a bundle that handle the rendering of views using Twig template engine.
 
+This work is based on the [[https://github.com/akhawaja/TwigView | TwigView]] extension by @akhawaja. What is the
+difference with  TwigView? We've done some cleaning on the code and also extended the **Twig_Loader_Filesystem**.
+Extending the Filesystem Loader lets us do cool things like:
+
+    {% include 'bundle::folder/file.twig' %}
+
+in our Twig views. Basically it tries first to find the file in our bundles and if not it will default to the
+`weed.paths` config array where you can point to paths where the Twig will look for.
+
 
 == Twig_Weed_Extension ==
 
