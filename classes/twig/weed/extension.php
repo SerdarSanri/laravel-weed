@@ -20,7 +20,6 @@ use Laravel\HTML;
 use Laravel\Input;
 use Laravel\Lang;
 use Laravel\URL;
-use Util\Image;
 use Twig_Extension;
 use Twig_Function_Function;
 use Twig_Function_Method;
