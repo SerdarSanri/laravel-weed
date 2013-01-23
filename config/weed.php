@@ -41,6 +41,6 @@ return array(
      * Twig Extensions
      */
     'extensions' => array(
-        'Twig\\Weed\Extension',
+        'Weed\\Twig\\Weed\Extension',
     ),
 );
