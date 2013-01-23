@@ -79,22 +79,22 @@ class View extends Laravel\View
         try
         {
             // array of paths where to find the views
-            $paths = Config::get('weed.paths');
+            $paths = Config::get('weed::weed.paths');
 
             // build the Twig object
             $loader = new Twig\Weed\Loader\Filesystem($paths);
 
             // define the Twig environment
             $config = array(
-                'cache'       => Config::get('weed.cache'),
-                'debug'       => Config::get('weed.debug'),
-                'auto_reload' => Config::get('weed.auto_reload'),
+                'cache'       => Config::get('weed::weed.cache'),
+                'debug'       => Config::get('weed::weed.debug'),
+                'auto_reload' => Config::get('weed::weed.auto_reload'),
             );
 
             $twig = new \Twig_Environment($loader, $config);
 
             // register the desired extensions
-            foreach(Config::get('weed.extensions') as $extension)
+            foreach(Config::get('weed::weed.extensions') as $extension)
             {
                 $twig->addExtension(new $extension());
             }
