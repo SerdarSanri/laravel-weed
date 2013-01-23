@@ -35,7 +35,7 @@ return array(
      */
     'cache'         => path('storage').'views',
     'debug'         => false,
-    'autoreload'    => true,
+    'auto_reload'   => true,
 
     /**
      * Twig Extensions

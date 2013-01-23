@@ -27,7 +27,7 @@ class View extends Laravel\View
      */
     protected $bundle_root = '';
 
-    /** 
+    /**
      * @var string
      */
     protected $template = '';
@@ -55,10 +55,10 @@ class View extends Laravel\View
         if (file_exists($path))
         {
             $this->template = $view.$this->template_ext;
-            
+
             return $path;
         }
-        
+
         throw new \Exception("View [$view] does not exist.");
     }
 
@@ -86,11 +86,11 @@ class View extends Laravel\View
 
             // define the Twig environment
             $config = array(
-                'cache'      => Config::get('weed.cache'),
-                'debug'      => Config::get('weed.debug'),
-                'autoreload' => Config::get('weed.autoreload'),
+                'cache'       => Config::get('weed.cache'),
+                'debug'       => Config::get('weed.debug'),
+                'auto_reload' => Config::get('weed.auto_reload'),
             );
-            
+
             $twig = new \Twig_Environment($loader, $config);
 
             // register the desired extensions
