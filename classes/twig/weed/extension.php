@@ -23,6 +23,7 @@ use Laravel\URL;
 use Twig_Extension;
 use Twig_Function_Function;
 use Twig_Function_Method;
+use \Weed\Twig\Weed\TokenParser\ForwardTokenParser;
 
 /**
  * Provides Twig support for commonly used Laravel classes and methods.
@@ -64,6 +65,10 @@ class Extension extends Twig_Extension
             'image'             => new Twig_Function_Method($this, 'image', array('is_safe' => array('html'))),
         );
     }
+
+	public function getTokenParsers() {
+		return array(new ForwardTokenParser());
+	}
 
     public function asset($url = false)
     {
